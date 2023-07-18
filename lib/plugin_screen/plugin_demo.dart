@@ -11,8 +11,9 @@ class _PluginDemoState extends State<PluginDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [],
-    ));
+      body: SafeArea(
+        child: Column(),
+      ),
+    );
   }
 }
