@@ -42,6 +42,7 @@ dependencies:
   cropperx: ^1.1.1
   media_kit: ^1.0.2
   image_picker: ^1.0.1
+  appinio_video_player: ^1.2.1
 
   
 
