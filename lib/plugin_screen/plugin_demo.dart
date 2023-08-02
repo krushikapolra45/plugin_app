@@ -1,4 +1,3 @@
-import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/material.dart';
 
 class PluginDemo extends StatefulWidget {
@@ -8,62 +7,34 @@ class PluginDemo extends StatefulWidget {
   State<PluginDemo> createState() => _PluginDemoState();
 }
 
-class _PluginDemoState extends State<PluginDemo> {}
-
-@override
-Widget build(BuildContext context) {
-  return SafeArea(
-    child: ListView(
-      padding: const EdgeInsets.all(15),
-      children: [
-        GestureDetector(
-          onTap: () => pickProfileImage(),
-          child: Container(
-            height: 400,
-            width: 500,
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.teal,
-              border: const Border(
-                left: BorderSide(
-                  color: Colors.black87,
-                  width: 10,
-                ),
-                right: BorderSide(
-                  color: Colors.black87,
-                  width: 10,
-                ),
-                top: BorderSide(
-                  color: Colors.black87,
-                  width: 10,
-                ),
-                bottom: BorderSide(
-                  color: Colors.black87,
-                  width: 10,
+class _PluginDemoState extends State<PluginDemo> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: PageView.builder(
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              Image.asset("assets/images/profil.png", width: 375, height: 208),
+              Text(
+                "Anywhere you are",
+                style: TextStyle(
+                  fontSize: 24,
                 ),
               ),
-            ),
-            child: image != null
-                ? Image.file(
-              File(image!.path),
-              fit: BoxFit.cover,
-            )
-                : const Icon(Icons.camera_alt_sharp, size: 90),
-          ),
-        ),
-      ],
-    ),
-  );
-},
-  pickProfileImage() async {
-    image = await picker.pickImage(source: ImageSource.gallery);
-    debugPrint(image!.path);
-    debugPrint(image!.name);
-
-    var data = await image!.readAsBytes();
-    debugPrint(data.toString());
-
-    setState(() {});
+              Text(
+                "Sell houses easily with the help of\n Listenoryx and to make this line big\nI am writing more.",
+                style: TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+              CircleAvatar(
+                child: Text("\${"),
+              )
+            ],
+          );
+        },
+      ),
+    );
   }
 }
